@@ -1,6 +1,7 @@
 package com.pe.employeesystem.service;
 
 import com.pe.employeesystem.entity.EmployeeEntity;
+import com.pe.employeesystem.exception.EmployeeNotFoundException;
 import com.pe.employeesystem.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +27,9 @@ public class EmployeeService {
     }
 
     public EmployeeEntity findEmployeeById(Long id) {
-        return employeeRepository.findEmployeeEntityById(id).orElseThrow(() -> new EmployeeNotFoundException("Employee" +
-                " by id " + id + " was not found"));
+        return employeeRepository.findEmployeeEntityById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee" +
+                        " by id " + id + " was not found"));
     }
 
     public EmployeeEntity updateEmployee(EmployeeEntity employee) {
