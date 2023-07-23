@@ -3,5 +3,8 @@ package com.pe.employeesystem.repository;
 import com.pe.employeesystem.entity.EmployeeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity,Integer> {
+import java.util.Optional;
+
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
+    Optional<EmployeeEntity> findEmployeeEntityById(Long id);
 }
